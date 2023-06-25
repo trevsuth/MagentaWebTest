@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magenta.js PianoRollCanvasVisualizer Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/dist/magentamusic.js"></script>
+    <script src="cMajor.js"></script>
+</head>
+<body>
+    <h1>Magenta.js PianoRollCanvasVisualizer and Player Example</h1>
+    <canvas id="canvas" style="border:1px solid black;"></canvas>
+    <button id="visualize">Visualize and Play Melody</button>
+    <script>
+
+        const player = new mm.SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus');
+
+        function visualizeAndPlayMelody() {
+            const canvas = document.getElementById('canvas');
+            const config = {noteHeight: 6, noteSpacing: 6, pixelsPerTimeStep: 40}; // adjust as needed
+            const visualizer = new mm.PianoRollCanvasVisualizer(sequence, canvas, config);
+
+            // Adding player
+            player.callbackObject = {
+                run: (note) => visualizer.redrawNote(note, 'red'),
+                stop: () => {}
+            }
+
+            if (player.isPlaying()) {
+                player.stop(sequence);
+            } else {
+                player.start(sequence);
+            }
+        }
+
+        document.getElementById('visualize').addEventListener('click', visualizeAndPlayMelody);
+    </script>
+</body>
+</html>
+
