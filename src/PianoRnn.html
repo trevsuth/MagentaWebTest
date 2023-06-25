@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/dist/magentamusic.js"></script>
+    <script src="twinkle.js"></script>
+    <script>
+        const model_url = 'https://storage.googleapis.com/magentadata/js/checkpoints/music_rnn/basic_rnn';
+        let model = undefined;
+        let player = new mm.SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus');
+
+        async function loadModel() {
+            model = new mm.MusicRNN(model_url);
+            await model.initialize();
+            console.log('Model loaded');
+        }
+
+        async function playMelody() {
+            player.start(sequence);
+        }
+
+        async function extendMelody() {
+            if (!model) {
+                console.error('Model is not loaded');
+                return;
+            }
+		
+		sequenceNew = mm.sequences.quantizeNoteSequence(sequence, 1)
+		const extendedSeq = await model.continueSequence(sequenceNew, steps, temp);
+		player.start(extendedSeq);
+        }
+
+	steps = 40
+	temp = 1.5
+        loadModel();
+    </script>
+
+    <button onclick="playMelody()">Play Melody</button>
+    <button onclick="extendMelody()">Extend Melody</button>
+</body>
+</html>
+
