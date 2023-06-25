@@ -18,7 +18,7 @@ func main() {
 	}()
 
 	// Open the browser
-	openBrowser("http://localhost:8080/PianoVAE.html")
+	openBrowser("http://localhost:8080/src/PianoVAE.html")
 
 	// Block forever
 	select {}
