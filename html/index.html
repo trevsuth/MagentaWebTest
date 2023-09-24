@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Interface</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-3">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#MelodyExtention" data-toggle="tab">Melody Extention</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#MelodyGeneration" data-toggle="tab">Melody Generation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#PianoRoll" data-toggle="tab">Piano Roll</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="MelodyExtention">
+            <iframe src="PianoRnn.html" width="100%" height="500px"></iframe>
+        </div>
+        <div class="tab-pane" id="MelodyGeneration">
+            <iframe src="PianoVAE.html" width="100%" height="500px"></iframe>
+        </div>
+        <div class="tab-pane" id="PianoRoll">
+            <iframe src="Piano.html" width="100%" height="500px"></iframe>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

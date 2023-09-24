@@ -3,13 +3,12 @@
 <head>
     <title>Magenta.js PianoRollCanvasVisualizer Example</title>
     <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.1/dist/magentamusic.js"></script>
-    <script src="twinkle.js"></script>
+    <script src="tunes/twinkle.js"></script>
 </head>
 <body>
     <h1>Magenta.js PianoRollCanvasVisualizer and Player Example</h1>
     <canvas id="canvas" style="border:1px solid black;"></canvas>
-    <button id="visualize">Original Melody</button>
-    <button id="playNew">New Melody</button>
+    <button id="visualize">Visualize and Play Melody</button>
     <script>
 
         const player = new mm.SoundFontPlayer('https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus');

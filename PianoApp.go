@@ -18,7 +18,7 @@ func main() {
 	}()
 
 	// Open the browser
-	openBrowser("http://localhost:8080/src/PianoRnn.html")
+	openBrowser("http://localhost:8080/html/index.html")
 
 	// Block forever
 	select {}
@@ -41,4 +41,3 @@ func openBrowser(url string) {
 		log.Fatalf("Failed to open browser: %v", err)
 	}
 }
-
